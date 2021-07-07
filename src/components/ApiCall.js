@@ -29,7 +29,7 @@ console.log(people)
 
   return (
     <>
-      <Profile ppl={ppls} />
+      {/* <Profile ppl={ppls} /> */}
     </>
   )
 } 
