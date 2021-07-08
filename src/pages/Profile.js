@@ -1,10 +1,30 @@
-import React, { useState } from 'react' 
-import ApiCall from '../components/ApiCall'
+import React, { useState, useEffect } from 'react' 
+import ProfileList from '../components/ProfileList'
+const url = 'https://jsonplaceholder.typicode.com/users'
+
+export default function Profile () {
+  const [people, setPeople] = useState([])
+
+  useEffect(() => {
+    fetch(url)
+    .then((response) => response.json())
+    .then(setPeople)
+    .catch((error) => {
+      console.log(error)
+    })
+  }, []);
+console.log(people)
+
+  return (
+    <div className='home'>
+      <p>Profile of fake dogs</p>
+      <ProfileList people={people} />
+    </div>
+  )
+}
 
 
-
-export default function Profile ({people}) {
-  // const [count, setCount] = useState
+// const [count, setCount] = useState
   // useEffect(() => {
   //   document.title =`The time is now ${Date.now()}`
   // })
@@ -20,19 +40,3 @@ export default function Profile ({people}) {
   // const click = () => {
   //   setCount(count + 1)
   // }
-console.log(people)
-//  const ppls = people.map((ppl) => (
-//     <ul key={ppl.id}> 
-//       <li>{ppl.name}</li>  
-//     </ul> 
-//   ));
-
-  return (
-    <div className='home'>
-    <p>Profile of fake dogs</p>
-      
-      {people}
-      
-    </div>
-  )
-}

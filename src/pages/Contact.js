@@ -21,7 +21,7 @@ export default function Contact () {
     <div className='home'>
       <h2>Contact small form with name email and text area this should use state</h2>
       <p>Create a "log in" where i have a list of volunteer. will be good to
-          practice nested routes and nested components</p>
+        practice nested routes and nested components</p>
       <ContactForm />
       <h3>Be added to our list of volunteers!</h3>
       <SubscriberForm createVolunteer={createVolunteer} />
